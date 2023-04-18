@@ -1,0 +1,581 @@
+
+0:00
+muy buenas hoy os traigo un vídeo que Seguro seguro va a funcionar se trata de
+0:05
+un vídeo donde vamos a aprender a usar los punteros lo que era la bestia negra en Mis tiempos de todo aquel que quería
+0:11
+aprender a programar Si no dominas los punteros es complicado que llegues a
+0:17
+entender toda la lógica que hay detrás de las estructuras de datos que utilizamos en nuestras en nuestros
+0:23
+desarrollos los árboles las listas los arrays etcétera etcétera con los
+0:29
+punteros podremos crear aplicaciones que hagan un uso muy óptimo de la memoria es
+0:36
+decir que vayan mucho más rápido y además consuman muchos menos recursos los contras vale porque también son una
+0:43
+caja de bombas de hecho lenguajes Como por ejemplo Java en su día dijeron que no lo implementaban para ser mucho más
+0:51
+seguro porque teniendo un uso tan óptimo de la memoria el programador también
+0:57
+puede meter Books clásicos Bugs de desbordamiento de pila aplicaciones que
+1:03
+crecen en uso de memoria desmesuradamente etcétera por evitar toda esta complejidad lenguajes Como por
+1:10
+ejemplo Java y python no hacen uso de punteros pero como comentaba si queréis aprender
+1:17
+a programar y entender toda la lógica que hay detrás de estas estructuras de datos tenéis que conocer los punteros
+1:23
+Así que empezamos Mirad hoy lo que voy a hacer va a ser
+1:29
+usar Go para enseñaros Cómo funcionan los punteros empezaremos desde cero vale
+1:35
+desde una simple variable hasta una lista con una estructura de datos y
+1:41
+veremos toda la lógica que hay detrás empezaremos con nuestro primer tutorial yo daré mano mi editor de textos
+1:49
+favorito tutorial punto
+1:54
+aquí básicamente empiezo mi aplicación Main
+2:04
+import fmt y me creo mi función Mind
+2:12
+vale perfecto a ver que me pongo aquí La Chuleta que
+2:21
+no la liemos parda a ver Esto no es python
+2:29
+vale voy a declarar mi primera variable en en go en Go tampoco hace falta que
+2:38
+hagamos toda la definición entera de lo que es la variable que vamos a usar yo
+2:43
+lo voy a hacer para que veamos todos los detalles Vale entonces yo aquí me creo
+2:48
+mi variable va a ser V que va a ser un entero y va a tener el valor 4
+2:58
+cualquier lenguaje de programación cuando nosotros definimos una variable lo que hace el lenguaje por detrás es es
+3:05
+reservar una posición de memoria vale para poder guardar los valores de esta
+3:11
+variable en este caso tenemos la variable V que va a ser un entero y va a
+3:17
+tener el valor 4 para que veamos todo esto yo hago
+3:31
+y aquí pongo el valor valor
+3:37
+de V aquí le paso V
+3:46
+y como comentaba cada variable tiene una posición de memoria esta posición de
+3:52
+memoria la podemos consultar
+4:01
+la posición de memoria de V es
+4:11
+V y aquí uso el carácter
+4:18
+anversal vale v con el carácter anversal
+4:23
+me refiero a la posición de memoria de V no al valor de V como hacía arriba
+4:28
+básicamente guardó esto y Go Run tutorial
+4:40
+De hecho no he mirado ni si aquí tenía instalado el Go perfecto
+4:45
+vale veo que se me ha olvidado
+4:54
+como siempre grabando estos vídeos Casi casi como si fuese vamos un
+5:02
+delincuente rápido corriendo a escondidas porque no me sobra el tiempo
+5:07
+vale si vuelvo a ejecutar esto el valor de la variable V es 4 y esta variable
+5:14
+está alojada en la posición de memoria 0xc0 tal tal tal tal vale en realidad la
+5:21
+posición de memoria donde se guardan las variables nos da igual de hecho seguramente la mayoría de vosotros ni lo
+5:29
+habíais pensado nunca que el valor de una variable se guardaba en una posición de memoria pero es que ahora con los
+5:35
+punteros necesitamos conocer este concepto
+5:40
+aclarado lo que es una variable y como se guarda ahora vamos a ver lo que es un
+5:45
+puntero o cómo declaramos un puntero los punteros se declaran
+5:51
+bar mi puntero se va a llamar p Vale y ponemos dólar int
+6:01
+vale aquí acabo de declarar un puntero en este caso Esto no es una memoria
+6:06
+ahora mismo el lenguaje de programación no ha reservado una posición de memoria para este puntero simplemente tenemos
+6:16
+una variable p vale que tiene la capacidad de apuntar a la posición de
+6:22
+memoria que nosotros queramos en este caso le puedo decir que
+6:29
+apunta a la posición de memoria de V
+6:36
+de esta manera yo ahora puedo venir aquí de hecho voy a
+6:53
+a copiar y ahora simplemente cojo
+7:02
+p y digo el valor de p aquí no le puedo poner p porque si le
+7:09
+pongo p me aparecería la posición de memoria del puntero tengo que usar el
+7:14
+carácter dólar digo asterisco con asterisco lo que le estamos diciendo al
+7:20
+puntero es que nos devuelva el valor que hay alojado en la posición de memoria en
+7:25
+la que apunta y la posición de memoria de p es P
+7:35
+fijaros vale en estos dos caracteres que estamos usando vale
+7:41
+anversal para indicar la posición de memoria y asterisco para indicar el
+7:48
+valor fijaros también que los punteros siempre
+7:54
+tienen una dirección de memoria por lo tanto Cuando hacemos el print no hace
+7:59
+falta que le pongamos el anversal delante si en cambio tenemos que indicarle con el símbolo asterisco que
+8:06
+nos devuelva el valor que hay allí almacenado en los punteros también le ponemos un
+8:13
+tipo aunque no haría falta para indicarle bueno el tipo de dato que va a
+8:18
+tener ahí metido si yo le digo ahora ejecutame Esto vale
+8:25
+fijaros me dice el valor de V es 4 la posición de memoria de V es la que hemos
+8:33
+dicho hace un momento el valor de p es el mismo valor de V porque ambos apuntan
+8:39
+a la misma posición de memoria y la posición de memoria de p en este
+8:45
+caso que no se lo he cambiado es la misma que la de V
+8:51
+continuamos vale con este tutorial Mira le voy a
+8:57
+cambiar si yo ahora le digo
+9:03
+que el valor de la posición de memoria a la
+9:08
+que apunta el puntero este es igual a 8
+9:14
+ahora qué va a pasar ahora va a pasar
+9:20
+que el valor de V Aunque nosotros no lo hemos dicho que V valía 8 le hemos dicho
+9:26
+que valía 4 Pero como a través del puntero que está apuntando a la misma posición de memoria le hemos cambiado
+9:33
+ese valor obviamente cambiar cambia también el valor
+9:39
+Vale ahora ya tenemos un poco la lógica de cómo funcionan los punteros Vale y su
+9:47
+diferencia con las variables no las variables tienen una posición de memoria asignada y cuando tú le pones un valor a
+9:53
+la variable se guarda en esa posición de memoria los punteros apuntan a una posición de memoria si le asignas la
+10:00
+misma posición de memoria a un puntero que a la variable pues al final guardan y leen datos del mismo sitio
+10:08
+y vais a decir ahora bueno Vale Eso está muy bien como curiosidad muy bien que
+10:15
+nos permite hacer esto Pues básicamente nos permite hacer Bueno es una navaja Suiza vale pero lo
+10:22
+vamos a usar ahora para ver cómo lo hacemos para pasar parámetros a las
+10:28
+funciones bien por valor o bien por referencia que la mayoría de lenguajes
+10:34
+tampoco nos lo permiten definir si tenemos punteros podemos hacerlo Qué quiere decir que le pasamos un valor a
+10:41
+una función por valor y no por referencia pues por ejemplo si nosotros cogemos y nos
+10:48
+definimos una función vale
+10:54
+que se llame Inc que lo que va a hacer va a ser
+10:59
+incrementar un valor que le pasemos por [Música]
+11:04
+como parámetro no le podemos pasar el un valor de V
+11:10
+Vale y aquí lo que hacemos Es
+11:21
+V Plus y Aquí hacemos fmt
+11:28
+film el valor
+11:36
+incrementado es
+11:45
+lo que hace el lenguaje cuando creamos esta función
+11:52
+por detrás lo que hace esta función es cuando se ejecuta el compilador lo que
+12:00
+hace es crearse otra posición de memoria para el parámetro V Vale y copia lo que
+12:09
+teníamos en la posición de memoria de V a la nueva posición de memoria y trabaja
+12:16
+sobre esa nueva posición de memoria hace lo que tenga que hacer y luego devuelve
+12:21
+el control Esto vale pues tiene un coste computacional que se dice porque claro
+12:28
+Hay que reservar una nueva posición de memoria hay que copiar el valor a la
+12:34
+nueva posición de memoria y ejecutar este código en este sentido luego el valor de V no
+12:42
+se vuelve a pasar aquí de acuerdo a ver lo pongo
+12:47
+si yo ahora Inc de V me incrementas el valor de V
+12:59
+y le digo ahora Oye ejecutame Esto fijaros vale el valor incrementado es 9
+13:06
+vale otra vez lo he puesto El Salto de línea perdón
+13:24
+la ejecuto me hice el valor incrementado es 9 vale por lo que hemos comentado
+13:31
+pero luego el valor de V sigue siendo 8 porque lo que ha hecho el compilador por
+13:36
+detrás ha sido eso reservar una nueva posición de memoria copiar el valor en
+13:42
+la nueva posición de memoria y empezar a trabajar con ese valor y luego naturalmente la variable que le hemos
+13:49
+pasado ha quedado sin tocarse sigue valiendo 8
+13:54
+vamos ahora a hacer una función que reciba el valor por referencia y no por
+14:01
+valor cómo hacemos esto pues muy fácil
+14:09
+Perdona voy a esta le voy a llamar Inc valor
+14:15
+vale Y me voy a crear otra que se va a llamar Inc referencia
+14:25
+todo el código que hacemos aquí acordaros que luego unos días después de la publicación del vídeo os lo público
+14:30
+bien Como comentario en Twitter en linkedin o en el propio YouTube vale con
+14:37
+lo cual no hace falta que estéis aquí copiando de la pantalla lo que defino aquí es que V va a ser un
+14:44
+puntero en lugar de ser
+14:54
+una variable a ver que baje esto y que se vea bien
+15:00
+V Plus porque lo que incremento es el valor de
+15:07
+V no incremento su posición de memoria Vale que eso es un book bastante habitual cuando trabajas con punteros
+15:13
+que la persona trabaja con el puntero como si fuese una variable y no sabemos qué pasa vale
+15:20
+fmt printf
+15:27
+el valor incrementado es dólar de
+15:35
+b y aquí le paso una vez más el valor de V
+15:43
+y aquí le pongo por referencia aquí le
+15:48
+pongo por valor
+15:55
+salir y si ejecuto otra vez la aplicación tengo que el valor
+16:02
+incrementado por valor es 9 Perdona Esto no se ha modificada porque se me ha
+16:10
+olvidado Ink referencia
+16:16
+y le paso la posición de udv vale en lugar de pasarle simplemente
+16:24
+V esto que va a hacer Esto va a hacer exactamente la misma lógica pero en
+16:30
+lugar de trabajar con una posición de memoria nueva va a trabajar con la misma posición de memoria de la variable V
+16:37
+esto Qué hace que sea mucho más rápido porque el compilador por detrás no tiene que reservar memoria y copiar datos sino
+16:45
+que directamente trabaja con ese valor y además estamos trabajando exactamente con la
+16:52
+misma variable V con lo cual cuando regrese la función V se habrá visto
+16:57
+incrementada ahora sí
+17:06
+Uy qué dice la línea 13 y el referencia
+17:16
+Ahora sí pero un error
+17:22
+vale el valor incrementado por valor es 9
+17:28
+vale Y luego el valor incrementado por referencia también es 9 porque en la
+17:35
+primera función no ha cambiado el valor de V se ha quedado sin sin alterarse
+17:40
+pero luego el valor del V pasa a ser 9 de la posición de memoria que teníamos
+17:47
+antes y el valor de p también es 9 porque es el mismo apuntador vale Así es
+17:52
+como utilizamos punteros para pasar valores en las funciones por referencia
+17:59
+en lugar de por valor que es lo habitual en Java por ejemplo cuando tú pasas a
+18:05
+una función una variable si es de un tipo del lenguaje se pasa por valor si
+18:13
+es un objeto se pasa por referencia vale para que os hagáis una idea pero nosotros no somos dueños no somos
+18:20
+capaces de elegir si es entero pasa por
+18:25
+por referencia o por valor porque siempre va a pasar igual y lo mismo nos pasa con el objeto
+18:32
+ya sabéis vale un uso de los punteros pasar valores por
+18:37
+referencia o por valor ahora vamos a ver cómo usamos punteros para crearnos una
+18:43
+lista de clientes y trabajar con esta lista de clientes veréis que la que
+18:50
+nuestro software se complica muchísimo vale la complejidad del Software que
+18:55
+creamos o evidentemente crece pero nos da un control muy óptimo de cómo se
+19:02
+guardan los datos y nos permite crear estructuras de datos que realmente se adapten a nuestras
+19:09
+necesidades en este caso me voy a crear otra aplicación va a ser Nano tutorial 2
+19:17
+punto
+19:25
+Main importa vale [Música]
+19:36
+hasta aquí todo igual y aquí yo me voy a crear una estructura de datos para almacenar clientes en este
+19:45
+caso lo hago type lo voy a hacer en castellano
+19:51
+cliente le podría llamar el gasto
+19:56
+stroke vale Y en mi estructura de clientes aquí podríamos tener cantidad
+20:02
+de datos vale pero voy a poner solamente dos voy a poner nombre que va a ser un
+20:09
+String y voy a poner un teléfono String y como Esto va a ser una lista de
+20:18
+clientes vale voy a hacer que cada registro de cliente apunte al siguiente
+20:23
+registro de cliente como pues me creo next que Esto va a ser un puntero de
+20:31
+tipo cliente y me creo un puntero que va a ser el
+20:37
+primer cliente cliente que va a ser del tipo
+20:44
+cliente perfecto
+20:52
+Sí ya ya de entrada es más complejo vale solamente de empezar nos tenemos que crear una estructura de datos llamada
+20:58
+cliente donde almacenamos el cliente y además tiene un puntero al siguiente
+21:03
+cliente de manera que cuando vayamos añadiendo clientes el primer cliente
+21:09
+apuntará al segundo cliente que apuntará al tercer cliente que apuntará al cuarto cliente evidentemente yo le he puesto
+21:16
+aquí una variable que se llama next que va a ser el apuntador al siguiente también podríamos tener un apuntador que
+21:23
+se llama que se llama se previews de manera que pudiésemos hacer el recorrido hacia adelante y hacia atrás y
+21:29
+evidentemente esto también nos añadiría complejidad también podríamos crearnos aquí un puntero que fuese un índice por
+21:38
+nombre para que si queremos Buscar por nombre pues podamos hacerlo usando algún tipo de algoritmo que nos permita ir más
+21:45
+rápido Pero bueno esto ya os lo dejo para vosotros como deberes si alguno lo
+21:50
+quiere hacer y lo quiere poner en los comentarios y compartirlo seguro que la de más gente de la comunidad estará
+21:56
+encantada Entonces yo lo que quiero es Añadir clientes
+22:04
+vale por ejemplo Pepe
+22:12
+como Hollywood 555 555 555 y me creo
+22:18
+pues cuatro clientes por decir algo
+22:24
+[Música]
+22:37
+copiar
+22:48
+pegar pegar
+22:54
+y hago PP Juan
+23:00
+Rodrigo y David y Aquí vamos a tener
+23:06
+el acabado en uno en seis en siete y en
+23:12
+8 vale Y cómo no me voy a crear un
+23:17
+método que va a ser lista clientes para poder sacar por la salida estándar
+23:25
+Pues el listado de los clientes que hemos creado vamos ahora a implementar estas dos funciones el haz cliente y el
+23:32
+lista cliente y esto lo voy a hacer tirando de chuleta vale porque
+23:41
+Bueno de hecho no no voy a tirar de chuleta para que no se nos alargue innecesariamente el vídeo Vale y lo
+23:50
+copiar y aquí tenemos nuestro al cliente vale esta funciona a cliente
+23:59
+vale tiene dos parámetros nombre y teléfono vale exactamente lo que hemos usado arriba y lo que hacemos aquí lo
+24:06
+que es crearnos una variable que se llame cliente con los valores que hemos
+24:12
+recibido como parámetro no Nombre nombre teléfono y el siguiente Cliente va a
+24:19
+valer 1000 nulo vale porque este va a ser el último cliente a partir de aquí
+24:24
+si primer cliente es nulo quiere decir que todavía no hay ninguno el primer
+24:30
+Cliente va a ser nuestro cliente le pasaremos la posición de memoria de
+24:36
+cliente y aquí se acabará todo si no es nuestro primer cliente vale lo
+24:43
+que haremos será un recorrido de todos los registros nexmex next hasta
+24:49
+llegar a uno que el valor de next sea nulo y cuando lleguemos a ese cliente
+24:56
+a ese cliente el next va a ser el nuevo cliente vale
+25:02
+como veis aquí se nos Crea una complejidad enorme solamente para Añadir
+25:08
+clientes a nuestra estructura y eso que solamente tenemos un puntero next si tuviésemos el previo que os he dicho
+25:14
+antes tendríamos que tener en cuenta también esa lógica de negocio vale a
+25:20
+partir de aquí también me creo mi función lista clientes
+25:25
+mi función lista clientes vale
+25:33
+tiene esta pinta de entrada si mi primer cliente es nulo no ya no hago nada vale
+25:41
+porque no tengo ningún cliente a partir de aquí lo que hago es
+25:46
+mi next cliente es el primer cliente y hago un bucle que lo que me hace es me
+25:53
+va imprimiendo cliente a cliente y siempre el siguiente Cliente va a ser el
+25:59
+next al final de todo el bucle tengo que imprimir también el último el último
+26:04
+cliente porque si no no se imprimiría esto aquí también
+26:11
+me pongo l no y le digo
+26:19
+Go Run tutorial 2
+26:25
+me dice que en la línea 19 lista clientes que no está definido
+26:31
+vale básicamente le he llamado lista cliente
+26:36
+y es lista cliente vale con lo cual le pongo aquí arriba lista clientes
+26:47
+Perfecto Ves nombre Pepe Juan Rodrigo y David Ya tengo de mi crud no el alta y
+26:57
+el read y el y el listar no vamos a hacer ahora el update de un cliente
+27:02
+vamos a suponer que Quiero actualizar el cliente Rodrigo que es la posición 2 porque aunque lo tengamos en tercera
+27:09
+posición empezamos a contar desde cero y tenemos el cliente cero es Juan el cliente 1 es Perdón al cliente cero es
+27:17
+PP el cliente 1 es Juan y el cliente 2 es Rodrigo vale
+27:23
+aquí lo que voy a hacer va a ser
+27:30
+Me Leo [Música] mi me creo bar
+27:38
+cliente vale
+27:45
+es el tipo cliente vale get
+27:51
+cliente de la posición 2 y lo que le hago a este cliente es
+28:00
+dólar Ay perdón asterisco cliente vale para referirme a la posición de memoria
+28:06
+vale al valor no a la posición de memoria punto nombre va a ser
+28:16
+Albert en lugar de Rodrigo vale
+28:21
+a partir de aquí me tengo que crear la función la función para obtener un cliente vale
+28:33
+es esta de aquí
+28:43
+pegar get cliente vale le pasó una
+28:49
+posición de la lista si el primer cliente es nulo ya no hago nada más a
+28:56
+partir de aquí lo que hago es ir hacer un recorrido
+29:01
+por todos los clientes que tengo Empezando por el primero Yéndome al next viendo el siguiente y tal y esto lo hago
+29:09
+mientras y vale porque aquí tengo un contador de posición sea inferior a la posición que
+29:16
+yo estoy demandando o hasta que Netflix cliente next ya sea nulo quiere decir
+29:24
+que quizás Le estoy pidiendo un cliente el cliente 8 y resulta que solamente que
+29:29
+tengo cuatro si la y no es igual a la posición que de
+29:36
+Mando retorno nulo me encuentro con la cauchística que os acabo de decir y
+29:42
+finalmente le devuelvo next cliente una vez más hacer un get vale se vuelve
+29:48
+complicado le digo
+29:53
+o Go perfecto no me ha hecho nada Ah no le tengo que poner
+30:03
+lista a clientes otra vez vale Y aquí lo que voy a hacer
+30:11
+va a ser un fmt punto print
+30:21
+clientes update
+30:27
+vale con un barra tal Y también con un salto de línea
+30:34
+al salir perfecto Ahora sí veis en el segundo
+30:41
+listado el segundo registro es al ver el lugar de Rodrigo
+30:48
+que era el de la primera ya hemos hecho el alta el listado no el leer y el update Ahora
+30:57
+que nos faltaría el eliminar un registro Cómo tenemos que hacerlo para eliminar
+31:02
+un registro Pues básicamente lo que voy a hacer yo va a ser un delete clientes O sea
+31:09
+me hago aquí un delete
+31:16
+cliente
+31:23
+a ver control
+31:32
+copiar
+31:39
+aquí clientes delete delete te digo
+31:45
+guardar ahí no me falta crear la función la voy a meter aquí debajo una vez más
+31:55
+tiro de chuleta para que no se nos alargue el vídeo Este vídeo me gustaría que fuese Entre 10 y 20 minutos vale
+32:02
+aunque no sé si lo vamos a conseguir delete
+32:07
+al cual le pasas una posición de memoria La que quieras eliminar y le dices si
+32:14
+primer cliente es nulo Es decir no hay ningún cliente ya no hago nada más a partir de aquí si la posición que le
+32:20
+pido es la 0 lo que tengo que hacer es cambiar el puntero del primer cliente vale
+32:27
+de manera que si el primer cliente solo hay un cliente y lo borro lo único que
+32:33
+hago es primer cliente ponerlo a null y si no modifico el puntero del primer
+32:38
+cliente al next eso en el caso de que la posición sea Cero en caso de que la
+32:44
+posición sea entre medio vale o la última lo único que haces es buscas el
+32:51
+cliente que sea de la posición que sea buscas el
+32:58
+anterior y le pones si alguno de los dos es nulo vale Ya no
+33:05
+hago nada más y sin ninguno de los dos es nulo cojo el previo next y le pongo
+33:11
+el valor del cliente next vale Y así nos saltamos un cliente
+33:19
+a partir de ahora o a partir de aquí si quiero cargarme el delete cliente
+33:26
+el de la posición 2 Vale y digo guardar salir
+33:36
+Uy posición 103 get cliente vale
+33:41
+esto aquí lo que me pasa
+33:46
+es que vale Cuando hice el ejemplo usé una

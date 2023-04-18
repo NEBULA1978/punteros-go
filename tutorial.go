@@ -8,6 +8,8 @@ func main() {
 	var p *int
 
 	p = &v
+	// El valor de la posicion de memoria al que apunta el puntero es 8
+	*p = 8
 
 	// Imprime el valor de la variable v en la cadena formateada
 	fmt.Printf("El valor de v es %d \n", v)
