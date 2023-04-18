@@ -7,6 +7,8 @@ func main() {
 	var v int = 4
 	var p *int
 
+	p = &v
+
 	// Imprime el valor de la variable v en la cadena formateada
 	fmt.Printf("El valor de v es %d \n", v)
 
