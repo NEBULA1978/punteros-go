@@ -11,6 +11,8 @@ func main() {
 	// El valor de la posicion de memoria al que apunta el puntero es 8
 	*p = 8
 
+	incValor(v)
+
 	// Imprime el valor de la variable v en la cadena formateada
 	fmt.Printf("El valor de v es %d \n", v)
 
@@ -25,6 +27,14 @@ func main() {
 	fmt.Printf("La posicion de memoria de p es %v \n", p)
 }
 
+// Recibe valor por valor
+func incValor(v int) {
+	v++
+	fmt.Printf("El valor incrementado es %d", v)
+}
+
+// //////////////////////
+// //////////////////////
 // ERROR1:
 // RESULTADO POR CONSOLA:
 
