@@ -22,7 +22,12 @@ func main() {
 
 	fmt.Printf("\nClienes Update\n")
 	ListaClientes()
+
+	DeleteCliente(2)
+	fmt.Printf("\nClientes Delete\n")
+	ListaClientes()
 }
+
 func AddCliente(nombre string, telefono string) {
 	var cliente = Cliente{
 		nombre:   nombre,
@@ -68,4 +73,24 @@ func GetCliente(pos int) *Cliente {
 		return nil
 	}
 	return nextCliente
+}
+
+func DeleteCliente(pos int) {
+	if primerCliente == nil {
+		return
+	}
+	if pos == 0 {
+		if primerCliente.next == nil {
+			primerCliente = nil
+			return
+		}
+		primerCliente = primerCliente.next
+		return
+	}
+	var cliente *Cliente = GetCliente(pos)
+	var previo *Cliente = GetCliente(pos - 1)
+	if cliente == nil || previo == nil {
+		return
+	}
+	previo.next = cliente.next
 }
