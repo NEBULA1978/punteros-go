@@ -1,0 +1,83 @@
+Ãšltimamente me ha dado por empezar a trabajar con Go. Se trata de un lenguaje que tiene ciertas ventajas respecto a Java, como por ejemplo: Que es simple y rápido, se puede compilar para crear ejecutables nativos(De hecho se postula como alternativa a C o Ensamblador) o muy buen suporte para concurrencia.
+
+Go permite crear aplicaciones nativas. Vamos a ver como creamos el clásico 'Hola mundo':
+
+package main
+
+import (
+	"fmt"
+	)
+
+func main() {
+	fmt.Println("hello world")
+	}
+
+El código es fácil de entender: Partimos definiendo un paquete, en este caso 'main'. También importamos los paquetes que vamos a usar, en este caso 'fmt' que contiene las funciones básicas para escribir cosas por consola. Finalmente, al igual que en C, el programa se empieza a ejecutar a partir de la función 'main()' que en este caso solo escribe por consola 'hello world'
+
+Esto podemos ejecutarlo(suponiendo que le hemos llamado 'hello.go') ejecutando el comando:
+
+go run hello.go
+
+Pero también podemos compilarlo y ejecutarlo como aplicación:
+
+go build hello.go
+
+./hello
+
+AsÃ­ de fácil y rápido.
+
+Desarrollo de aplicaciones web
+
+Vamos a ver ahora como hacemos para crear aplicaciones web con este lenguaje. Es bastante parecido a como lo harÃ­amos con Javascript:
+
+package main
+
+import (
+	"fmt"
+	"net/http"
+	)
+
+func main() {
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "Hola request %s\n", r.URL.Path)
+		})
+
+	http.ListenAndServe(":8080", nil)
+	}
+
+En este caso hemos importado también el paquete 'net/http' que nos convierte en un servidor web. En este caso vamos a escuchar en la URL raÃ­z del puerto 8080 para devolver siempre 'Hola request' seguido del path.
+
+Desarrollo de aplicaciones web con plantillas
+
+Como lo de escribir aplicaciones web escribiendo el código HTML a mano es muy poco elegante(Código espagueti, para los mas crÃ­ticos). Vamos a ver como podemos usar el paquete de templates para generar la página web mediante una plantilla. Primero el código de la plantilla(index.html):
+
+<html>
+	<body>
+		Saludando {{.Saludo}}
+	</html>
+</html>
+
+Ahora el servidor Go:
+
+package main
+
+import (
+	"html/template"
+	"net/http"
+	)
+
+func main() {
+	tmpl := template.Must(template.ParseFiles("index.html"))
+
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		tmpl.Execute(w, struct{ Saludo string }{ "Hola mundo!!!!" })
+		})
+
+	http.ListenAndServe(":8080", nil)
+}
+
+En este caso, leemos la plantilla en la variable 'tmpl' para después llamarla pesándola como parámetros una estructura(En este caso definida al vuelo) con el texto "Hola Mundo".
+
+En este ejemplo vemos que Go tiene un sistema de estructuras de datos muy flexible.
+
+En fin, esto es todo, espero que os haya gustado.
