@@ -12,6 +12,7 @@ func main() {
 	*p = 8
 
 	incValor(v)
+	incReferencie(&v)
 
 	// Imprime el valor de la variable v en la cadena formateada
 	fmt.Printf("El valor de v es %d \n", v)
@@ -30,7 +31,13 @@ func main() {
 // Recibe valor por valor
 func incValor(v int) {
 	v++
-	fmt.Printf("El valor incrementado es %d", v)
+	fmt.Printf("El valor incrementado(Por Valor) es %d \n", v)
+}
+
+// Recibe Referencia
+func incReferencie(v *int) {
+	*v++
+	fmt.Printf("El valor incrementado(Por Referencia) es %d\n", *v)
 }
 
 // //////////////////////
