@@ -1,0 +1,142 @@
+package main
+
+import "fmt"
+
+// Definimos la estructura de Cliente
+type Cliente struct {
+	nombre   string
+	telefono string
+	next     *Cliente
+}
+
+// Variable global para el primer cliente
+var primerCliente *Cliente
+
+func main() {
+	// Añadimos algunos clientes a la lista
+	AddCliente("Pepe", "444 444 444")
+	AddCliente("Juan", "444 444 445")
+	AddCliente("Luis", "444 444 446")
+	AddCliente("Pedro", "444 444 446")
+
+	// Mostramos la lista de clientes
+	ListaClientes()
+
+	// Obtenemos un cliente por posición y actualizamos su nombre
+	var cliente *Cliente = GetCliente(2)
+	(*cliente).nombre = "Albert"
+
+	// Mostramos la lista de clientes actualizada
+	fmt.Printf("\nClienes Update\n")
+	ListaClientes()
+
+	// Eliminamos un cliente por posición
+	DeleteCliente(2)
+
+	// Mostramos la lista de clientes después de eliminar uno
+	fmt.Printf("\nClientes Delete\n")
+	ListaClientes()
+}
+
+// Función para añadir un nuevo cliente a la lista
+func AddCliente(nombre string, telefono string) {
+	// Creamos un nuevo cliente
+	var cliente = Cliente{
+		nombre:   nombre,
+		telefono: telefono,
+		next:     nil,
+	}
+	
+	// Si no hay ningún cliente en la lista, el nuevo cliente se convierte en el primer cliente
+	if primerCliente == nil {
+		primerCliente = &cliente
+		return
+	}
+	
+	// Si ya hay clientes en la lista, recorremos la lista hasta encontrar el último cliente y lo enlazamos con el nuevo cliente
+	var nextCliente *Cliente = primerCliente
+	for nextCliente.next != nil {
+		nextCliente = nextCliente.next
+	}
+	nextCliente.next = &cliente
+}
+
+// Función para mostrar la lista de clientes
+func ListaClientes() {
+	// Si no hay ningún cliente, no hacemos nada
+	if primerCliente == nil {
+		return
+	}
+	
+	// Si hay clientes, recorremos la lista y los mostramos por pantalla
+	var nextCliente *Cliente = primerCliente
+	for nextCliente.next != nil {
+		fmt.Printf("Nombre: %s Teléfono: %s \n", nextCliente.nombre, nextCliente.telefono)
+		nextCliente = nextCliente.next
+	}
+	fmt.Printf("Nombre: %s Teléfono: %s \n", nextCliente.nombre, nextCliente.telefono)
+}
+
+// Función para obtener un cliente por posición
+func GetCliente(pos int) *Cliente {
+	// Si no hay ningún cliente, devolvemos nil
+	if primerCliente == nil {
+		return nil
+	}
+	
+	// Si hay clientes, recorremos la lista hasta llegar a la posición deseada
+	var nextCliente *Cliente = primerCliente
+	i := 0
+	for i < pos && nextCliente.next != nil {
+		nextCliente = nextCliente.next
+		i++
+	}
+	
+	// Si no encontramos el cliente en la posición deseada, devolvemos nil
+	if i != pos {
+		return nil
+	}
+	
+	// Si encontramos el cliente en la posición deseada, lo devolvemos
+	return nextCliente
+}
+
+// Función para eliminar un cliente por posición
+func DeleteCliente(pos int) {
+	// Si no hay ningún cliente, no hacemos nada
+	if primerCliente == nil {
+		return
+	}
+	
+	// Si la posición es 0, eliminamos el primer cliente
+	if pos == 0 {
+		if primerCliente.next == nil {
+			primerCliente = nil
+			return
+		}
+		primerCliente = primerCliente.next
+		return
+	}
+	
+	// Si la posición no es 0, obtenemos el cliente de la posición deseada y su anterior
+	var cliente *Cliente = GetCliente(pos)
+	var previo *Cliente = GetCliente(pos - 1)
+	
+	// Si no encontramos alguno de los clientes, no hacemos nada
+	if cliente == nil || previo == nil {
+		return
+	}
+	
+	// Si encontramos ambos clientes, enlazamos el anterior con el siguiente del cliente y eliminamos el cliente
+	previo.next = cliente.next
+}
+
+Este código en Go es un ejemplo de cómo trabajar con una lista enlazada simple. La lista enlazada está compuesta por una serie de nodos, donde cada nodo contiene un dato y una referencia al siguiente nodo de la lista.
+
+En este ejemplo, cada nodo representa un cliente y tiene dos campos: el nombre y el número de teléfono. Además, cada nodo tiene una referencia al siguiente nodo de la lista.
+
+El programa comienza definiendo la estructura de Cliente y una variable global llamada primerCliente que apunta al primer nodo de la lista (o a nil si la lista está vacía). Luego, se definen cuatro funciones para agregar un cliente a la lista, mostrar la lista de clientes, obtener un cliente por posición y eliminar un cliente por posición.
+
+En la función main, se agregan cuatro clientes a la lista y se muestran por pantalla. Luego, se obtiene el cliente en la posición 2, se actualiza su nombre y se muestra la lista actualizada. Finalmente, se elimina el cliente en la posición 2 y se muestra la lista de clientes restante.
+
+En general, la lista enlazada es una estructura de datos muy útil en programación y se utiliza en una amplia variedad de aplicaciones. Este ejemplo muestra cómo se puede trabajar con una lista enlazada simple en Go y puede servir como punto de partida para crear aplicaciones más complejas que requieren el uso de esta estructura de datos.
