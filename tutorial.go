@@ -20,7 +20,7 @@ func main() {
 
 	// Imprime la posicion de memoria de p
 	// Los punteros simepre tienen una posicion de memoria no ponemos &
-	fmt.Printf("La posicion de memoria de v es %v \n", p)
+	fmt.Printf("La posicion de memoria de p es %v \n", p)
 }
 
 // ERROR1:
